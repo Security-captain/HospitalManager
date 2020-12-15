@@ -1,0 +1,53 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cssl.dao.LiaoDrugDao">
+
+    <!--查询药品-->
+    <select id="selDrug" parameterType="com.cssl.pojo.Lpharmacy" resultType="com.cssl.pojo.Lpharmacy">
+        select p.pharmacyId,p.pharmacyName,p.drugstoreId rugstoreId,p.skullId,p.warehouseId,p.unit unitId,p.sellingPrice,
+        p.area areaId,p.type typeId,p.produceDate,p.validDate,p.drugstorenum,p.skullbatch,u.unitName,a.areaName,t.typeName
+        from pharmacy p,unit u,area a,type t
+        <where>
+            p.unit=u.unitId and p.area=a.areaId and p.type=t.typeId
+            <if test="pharmacyName!=null and pharmacyName!=''">
+                and p.pharmacyName like concat('%',concat(#{pharmacyName},'%'))
+            </if>
+            <if test="pharmacyId!='' and pharmacyId!=null">
+                and p.pharmacyId=#{pharmacyId}
+            </if>
+        </where>
+    </select>
+    <!--查询患者药品-->
+    <select id="selDrugs" parameterType="com.cssl.pojo.Lrecord" resultType="com.cssl.pojo.Lrecord">
+        select hospitalpriceid,registerId registerid,durgname,durgnum,repiceprice,repicetotal,htime,state
+        from hospitalprice where state=#{state} and registerId=#{registerid} order by htime desc
+    </select>
+    <!--开药-->
+    <insert id="addDrug" parameterType="com.cssl.pojo.Lrecord">
+        insert into hospitalprice(registerid,durgname,durgnum,repiceprice,repicetotal,htime,state)
+         values(#{registerid},#{durgname},#{durgnum},#{repiceprice},#{repicetotal},NOW(),#{state});
+    </insert>
+    <!--添加已有药品-->
+    <update id="updDrug" parameterType="com.cssl.pojo.Lrecord">
+        update hospitalprice set durgnum=durgnum+#{durgnum},repicetotal=durgnum*repiceprice,htime=NOW() where registerId=#{registerid} and state=#{state} and durgname=#{durgname}
+    </update>
+    <!--删除患者药品-->
+    <delete id="delDrug" parameterType="com.cssl.pojo.Lrecord">
+        delete from hospitalprice where hospitalpriceid=#{hospitalpriceid}
+    </delete>
+    <!--移除药品-->
+    <update id="updDrugs" parameterType="com.cssl.pojo.Lrecord">
+        update pharmacy set drugstorenum=drugstorenum+#{durgnum} where pharmacyName=#{durgname};
+    </update>
+    <!--添加药品-->
+    <update id="updNum" parameterType="com.cssl.pojo.Lrecord">
+        update pharmacy set drugstorenum=drugstorenum-#{durgnum} where pharmacyName=#{durgname};
+    </update>
+    <!--修改药品的状态-->
+    <update id="upd" parameterType="com.cssl.pojo.Lrecord">
+        update hospitalprice set state=2,htime=NOW() where state=0 and registerId=#{registerid}
+    </update>
+
+</mapper>

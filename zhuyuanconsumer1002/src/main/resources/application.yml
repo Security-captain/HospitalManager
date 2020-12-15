@@ -1,0 +1,20 @@
+server:
+  port: 1002
+
+spring:
+  application:
+    name: zhuyuanconsumer1002
+  cloud:
+    nacos:
+      discovery:
+        server-addr:  127.0.0.1:8848
+  thymeleaf:
+    encoding: UTF-8
+    cache: false
+
+
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/templates/,classpath:/META-NF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
