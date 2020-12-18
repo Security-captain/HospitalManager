@@ -30,7 +30,7 @@ import java.util.Map;
  * 加载左侧边栏
  */
 @RestController               //充当提供者返回数据时用
-@RequestMapping("/sel")
+//@RequestMapping("/sel")
 //@Controller                 //单层
 public class MenuController {
 
@@ -38,10 +38,10 @@ public class MenuController {
     private MenuService menuService;
 
     //跳转到登陆页面
-    @RequestMapping("toLogin")
-    public String toLogin() {
-        return "view/login";
-    }
+//    @RequestMapping("toLogin")
+//    public String toLogin() {
+//        return "view/login";
+//    }
 
     //登陆   shiro登陆
     @RequestMapping("login")

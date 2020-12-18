@@ -10,7 +10,7 @@ spring:
         server-addr:  127.0.0.1:8848
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql:///hospitaldata?serverTimezone=UTC
+    url: jdbc:mysql:///hospitaldata?serverTimezone=Asia/Shanghai
     username: root
     password: root
   thymeleaf:
