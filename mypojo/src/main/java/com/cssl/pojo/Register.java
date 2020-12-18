@@ -13,7 +13,8 @@ public class Register {
     String address;
     String phone;
     String idcard;
-    @JsonFormat(pattern = "yyyy年MM月dd日",timezone = "UTC+8" )
+    //,timezone = "GMT+8"
+    @JsonFormat(pattern = "yyyy年MM月dd日" )
     Date registerDate;
     String operator;
     Double money;
@@ -24,7 +25,7 @@ public class Register {
     String department;
     String doctorName;
     String bedName;
-    @JsonFormat(pattern = "yyyy年MM月dd日",timezone = "UTC+8" )
+    @JsonFormat(pattern = "yyyy年MM月dd日")
     Date endDate;
     Double price;
     Double prices;

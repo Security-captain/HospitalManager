@@ -9,7 +9,8 @@ public class Lcheckup {
     Integer cid;
     Integer registerid;
     String content;
-    @JsonFormat(pattern = "yyyy年MM月dd日",timezone = "GMT+8" )
+    //,timezone = "GMT+8"
+    @JsonFormat(pattern = "yyyy年MM月dd日" )
     Date citme;
     String userName;
 
