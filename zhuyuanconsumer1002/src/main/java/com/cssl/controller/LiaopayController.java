@@ -8,7 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -43,7 +46,7 @@ public class LiaopayController {
     @RequestMapping("selPays")
     @ResponseBody
     public Object selPays(Integer page, Integer limit,Register register){
-        System.out.println("-----------------selpays----------------"+"\n"+register);
+        System.out.println("-----------------交款记录----------------"+"\n"+register);
         return client.selPays(page,limit,register);
     }
 
@@ -51,7 +54,6 @@ public class LiaopayController {
     @RequestMapping("selSurplus")
     @ResponseBody
     public Object selSurplus(Lrecord lrecord){
-        System.out.println("-----------------selSurplus----------------");
         List<Lrecord> ll = client.selSurplus(lrecord);
         return ll;
     }

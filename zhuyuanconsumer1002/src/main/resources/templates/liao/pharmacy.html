@@ -149,7 +149,7 @@
                 ,{field:'durgnum', title:'数量',align:'center',width:"12%"}
                 ,{field:'repiceprice', title:'售价',align:'center',width:"12%"}
                 ,{field:'repicetotal', title:'总价',align:'center',width:"12%"}
-                ,{field:'htime', title:'取药时间',templet: "<div>{{layui.util.toDateString(d.htime, 'yyyy年MM月dd日 HH:mm:ss')}}</div>",align:'center',width:"44%"}
+                ,{field:'htime', title:'取药时间',templet: "<div>{{layui.util.toDateString(d.htime, 'yyyy-MM-dd HH:mm:ss')}}</div>",align:'center',width:"44%"}
             ]]
         })
         //查询
@@ -189,9 +189,11 @@
                         });
                         sels();
                         tableIns.reload({
+                            //-----------------------------------------------
                             url:"../liao/selDrugs?"+params
                         })
                         tableInss.reload({
+                            //-----------------------------------------------
                             url:"../liao/selPhar?"+params
                         })
                         $("#show1").fadeIn(1000);

@@ -35,6 +35,7 @@
                 <div class="layui-input-inline">
                     <input type="hidden" name="reportid" id="reportid" value="0">
                     <input type="text" name="userName" id="userName" lay-verify="required" readonly  placeholder="请输入姓名" autocomplete="off" class="layui-input" style="width:150px">
+                    <!--门诊过来的人-->
                     <button type="button" class="layui-btn layui-btn-sm" style="position:absolute;margin: -38px 0px 0px 150px;display: block;height: 38px;" id="zhuan">
                         <i class="layui-icon"></i>
                     </button>
@@ -309,7 +310,7 @@
                 type:1,
                 title:'入院登记',
                 content:$("#saveOrUpdateDiv"),
-                area:['800px','550px'],
+                area:['800px','480px'],
                 success:function(index){
                     url="../liao/addRegister";
                 }
@@ -412,7 +413,7 @@
                 type:1,
                 title:'门诊人员',
                 content:$("#yuan"),
-                area:['800px','550px'],
+                area:['800px','480px'],
                 success:function(index){
                     tableInss.reload({
                         url:"../liao/selDoor"
@@ -456,7 +457,7 @@
                 mainIndexss=layer.open({
                     type:1,
                     title:'转院',
-                    area:['700px','500px'],
+                    area:['700px','480px'],
                     content:$("#ke"),
                     success:function(index){
                         //在科室下拉框添加内容

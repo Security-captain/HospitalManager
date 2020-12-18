@@ -20,11 +20,11 @@ import java.util.Map;
 public interface MenuClient {
 
     //登陆      查用户信息
-    @RequestMapping("/sel/login")
+    @RequestMapping("login")
     public Map<String,Object> login(@RequestParam String loginname, @RequestParam String pwd);
 
     //加载后台首页左导航栏
-    @RequestMapping("/sel/toTreeLoad")
+    @RequestMapping("toTreeLoad")
     public List<TreeNode> toTreeLoad(@RequestParam Integer userid);
 
     /**
