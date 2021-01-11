@@ -1,23 +1,13 @@
 package com.cssl.pojo;
 
-
+import lombok.Data;
+/**
+ * 库房表
+ * */
+@Data
 public class Warehuose {
-    private Integer warehouseId;
-    private String supplierName;
 
-    public Integer getWarehouseId() {
-        return warehouseId;
-    }
+    private int warehouseId;
+    private String supplierName; // 库房名称
 
-    public void setWarehouseId(Integer warehouseId) {
-        this.warehouseId = warehouseId;
-    }
-
-    public String getSupplierName() {
-        return supplierName;
-    }
-
-    public void setSupplierName(String supplierName) {
-        this.supplierName = supplierName;
-    }
 }

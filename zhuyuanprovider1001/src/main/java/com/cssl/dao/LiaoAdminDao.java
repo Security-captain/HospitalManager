@@ -28,7 +28,7 @@ public interface LiaoAdminDao {
     //修改患者床位状态
     int updBed(Register register);
     //查询折扣
-    List<Moneytype> selDis();
+    List<MoneyType> selDis();
     //查询门诊传过来的信息
     List<Register> selDoor();
     //逻辑删除门诊信息

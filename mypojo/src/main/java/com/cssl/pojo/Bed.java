@@ -1,61 +1,27 @@
 package com.cssl.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
+@TableName("bed")
 public class Bed {
+    @TableId(value = "bedId", type = IdType.AUTO)
     private Integer bedId;
+    @TableField("bedname")
     private String bedname;
+    @TableField("state")
     private Integer state;
+    @TableField("price")
     private Double price;
+    @TableField("departmentId")
     private Integer departmentId;
     private String department;
-
-    public Integer getDepartmentId() {
-        return departmentId;
-    }
-
-    public void setDepartmentId(Integer departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public Integer getBedId() {
-        return bedId;
-    }
-
-    public void setBedId(Integer bedId) {
-        this.bedId = bedId;
-    }
-
-    public String getBedname() {
-        return bedname;
-    }
-
-    public void setBedname(String bedname) {
-        this.bedname = bedname;
-    }
-
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
 }

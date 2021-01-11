@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace和dao接口全路径映射 -->
+<mapper namespace="com.zy.dao.PharmacyDao">
+
+    <select id="selectPharmacy" resultType="map">
+        SELECT DISTINCT p.pharmacyId,p.pharmacyName,sk.skullName,un.unitName,
+        p.sellingPrice, ar.areaName,ty.typeName,p.produceDate,p.validDate,
+        p.skullbatch,p.drugstorenum FROM pharmacy p,drugstore dr,skull sk,
+        warehouse wa,unit un,AREA ar,TYPE ty
+        <where>
+            p.skullId=sk.skullId AND p.warehouseId=wa.warehouseId
+            AND p.unit=un.unitId AND p.area=ar.areaId
+            AND p.type=ty.typeId
+            <if test="name!=null and name!=''">
+                AND p.pharmacyName like concat('%' ,concat(#{name},'%'))
+            </if>
+        </where>
+        ORDER BY p.pharmacyId DESC
+        limit #{page},#{limit}
+    </select>
+
+
+</mapper>

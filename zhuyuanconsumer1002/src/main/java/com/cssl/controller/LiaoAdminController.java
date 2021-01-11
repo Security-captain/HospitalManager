@@ -28,7 +28,7 @@ public class LiaoAdminController {
     }
 
     //查询患者信息
-    @RequestMapping("/selRegister")
+    @RequestMapping("selRegister")
     @ResponseBody
     public Object selRegister(Integer page, Integer limit, Register register){
         Map<String,Object> tableData = client.selRegister(page,limit,register);
@@ -36,7 +36,7 @@ public class LiaoAdminController {
     }
 
     //页面请求查询科室信息
-    @RequestMapping("/selDepartment")
+    @RequestMapping("selDepartment")
     @ResponseBody
     public Object selDepartment(){
         return client.selDepartment();

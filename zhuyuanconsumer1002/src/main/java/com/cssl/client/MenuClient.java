@@ -15,6 +15,7 @@ import java.util.Map;
  * @author jalon
  * @date 2020-12-8 11:02
  * feign调用
+ * 住院管理
  */
 @FeignClient(name = "zhuyuanprovider1001")
 public interface MenuClient {
@@ -26,6 +27,34 @@ public interface MenuClient {
     //加载后台首页左导航栏
     @RequestMapping("toTreeLoad")
     public List<TreeNode> toTreeLoad(@RequestParam Integer userid);
+
+    /**
+     * 后台首页Main页面
+     * 显示排版信息
+     * @return
+     */
+    @RequestMapping("one")
+    public Object one();
+    @RequestMapping("two")
+    public Object two();
+    @RequestMapping("three")
+    public Object three();
+    @RequestMapping("four")
+    public Object four();
+    @RequestMapping("five")
+    public Object five();
+    @RequestMapping("six")
+    public Object six();
+    @RequestMapping("seven")
+    public Object seven();
+    @RequestMapping("currentNum")
+    public Object currentNum();
+    @RequestMapping("Total")
+    public Object Total();
+    @RequestMapping("zhuyuanTotal")
+    public Object zhuyuanTotal();
+    @RequestMapping("currentZhuYuan")
+    public Object currentZhuYuan();
 
     /**
      * liaoAdmin    入院登记

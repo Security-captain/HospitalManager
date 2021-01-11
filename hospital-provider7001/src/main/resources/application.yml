@@ -1,0 +1,35 @@
+server:
+  port: 7001
+
+#注册到nacos
+spring:
+  application:
+    name: nacos-provider7001
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+  #模板配置
+  thymeleaf:
+    encoding: utf-8
+    #开发时关闭缓存,不然没法看到实时页面(要重启)
+    cache: false
+
+ #数据源
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///hospitaldata?serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+#mybatis
+mybatis:
+  type-aliases-package: com.cssl.pojo
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    auto-mapping-behavior: full
+    use-generated-keys: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

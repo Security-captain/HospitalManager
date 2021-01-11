@@ -1,25 +1,20 @@
 package com.cssl.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@TableName("departments")
 public class Departments {
+    @TableId(value = "departmentId",type = IdType.AUTO)
     private Integer departmentId;
+    @TableField("department")
     private String department;
-
-    public Integer getDepartmentId() {
-        return departmentId;
-    }
-
-    public void setDepartmentId(Integer departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
 }

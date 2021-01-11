@@ -44,7 +44,7 @@
         update bed set state=1 where bedid=#{bedId}
     </update>
     <!--查询折扣-->
-    <select id="selDis" resultType="com.cssl.pojo.Moneytype">
+    <select id="selDis" resultType="com.cssl.pojo.MoneyType">
         select * from moneytype
     </select>
     <!--查询门诊患者-->

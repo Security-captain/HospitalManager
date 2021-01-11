@@ -1,0 +1,15 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cssl.mapper.PaiBanMapper">
+    <select id="findAllPaiBan" resultType="com.cssl.pojo.PaiBan">
+        select * from doctor d INNER JOIN paiban p on p.doctorId=d.doctorId
+        <where>
+            <if test="doctorName!=null and doctorName!=''">
+                doctorName like concat('%' ,concat(#{doctorName},'%'))
+            </if>
+        </where>
+        order by d.doctorId desc
+    </select>
+</mapper>

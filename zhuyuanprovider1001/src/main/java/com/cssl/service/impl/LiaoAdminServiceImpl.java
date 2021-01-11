@@ -51,7 +51,7 @@ public class LiaoAdminServiceImpl implements LiaoAdminService {
     }
 
     @Override
-    public List<Moneytype> selDis() {
+    public List<MoneyType> selDis() {
         return liaoAdminDao.selDis();
     }
 

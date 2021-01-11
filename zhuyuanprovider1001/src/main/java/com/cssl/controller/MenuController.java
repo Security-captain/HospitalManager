@@ -10,12 +10,7 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -30,18 +25,10 @@ import java.util.Map;
  * 加载左侧边栏
  */
 @RestController               //充当提供者返回数据时用
-//@RequestMapping("/sel")
-//@Controller                 //单层
 public class MenuController {
 
     @Autowired
     private MenuService menuService;
-
-    //跳转到登陆页面
-//    @RequestMapping("toLogin")
-//    public String toLogin() {
-//        return "view/login";
-//    }
 
     //登陆   shiro登陆
     @RequestMapping("login")

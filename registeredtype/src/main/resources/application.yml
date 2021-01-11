@@ -1,0 +1,24 @@
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  application:
+    name: registeredtype
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///hospitaldata?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.cssl.pojo
+server:
+  port: 1000
+#Asia/Shanghai

@@ -1,0 +1,18 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cssl.mapper.BedMapper">
+
+    <select id="findAllBed" resultType="com.cssl.pojo.Bed">
+        select*from bed b,departments d where b.departmentId=d.departmentId
+        <if test="bedname!=null and bedname!=''">
+            and bedname like concat('%',concat(#{bedname},'%'))
+        </if>
+        order by b.bedId desc
+    </select>
+
+    <select id="checkCount" resultType="int">
+        select count(*) from bed b,register r where r.bednum=b.bedid and b.bedid=#{bedid}
+    </select>
+</mapper>

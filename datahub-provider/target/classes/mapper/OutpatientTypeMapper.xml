@@ -1,0 +1,16 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cssl.mapper.OutpatientTypeMapper">
+    <select id="findAllOutpatientType" resultType="com.cssl.pojo.OutpatientType">
+        SELECT o.ostate, o.outpatientId,p.projectName pprojectName,o.projectName projectName,p.projectId
+        projectId,u.unitName,u.unitId unitId ,o.price from outpatienttype o,unit u, projecttype p where o.unit=u.unitId
+        and p.projectId=o.bigprojectId
+
+        <if test="projectName!=null and projectName!=''">
+            and o.projectName like concat('%',concat(#{projectName},'%'))
+        </if>
+        order by o.outpatientId desc
+    </select>
+</mapper>

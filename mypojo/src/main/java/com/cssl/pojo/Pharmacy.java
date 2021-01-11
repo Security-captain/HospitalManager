@@ -9,8 +9,8 @@ import lombok.Data;
 public class Pharmacy {
 
     @TableId
-    private int pahrmacyId; //药房id
-    private String pahrmacyName; // 药房名称
+    private int pharmacyId; //药房id
+    private String pharmacyName; // 药房名称
     private String drugstoreId; // 药品名称
     private int skullId; //经办人Id
     private int warehouseId; //库房Id

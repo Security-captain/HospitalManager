@@ -1,0 +1,23 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cssl.mapper.DoctorMapper">
+    <select id="doctorList" resultType="com.cssl.pojo.Doctor">
+        select*from doctor d,departments de,registeredtype r where d.departmentId=de.departmentId and
+        d.registeredId=r.registeredId
+        <if test="doctorName!=null and doctorName!=''">
+            and d.doctorName like concat('%',concat(#{doctorName},'%'))
+        </if>
+        <if test="dstate!=null">
+            and d.dstate =#{dstate}
+        </if>
+        and dstate!=3
+        ORDER BY doctorId asc
+    </select>
+
+    <select id="checkCount" resultType="int">
+        select count(r.reportId) from report r ,doctor d where r.doctor=d.doctorId and r.doctor=#{doctorId} and
+        d.dstate=0 and r.state=1
+    </select>
+</mapper>

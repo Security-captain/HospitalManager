@@ -21,8 +21,6 @@ import java.util.Map;
  * @date 2020-12-4 17:56
  */
 @RestController
-//@Controller
-//@RequestMapping("/liao")
 public class LiaoitemController {
 
     @Autowired

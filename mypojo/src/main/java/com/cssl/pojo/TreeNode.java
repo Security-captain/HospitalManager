@@ -1,6 +1,5 @@
 package com.cssl.pojo;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +12,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TreeNode implements Serializable {
+public class TreeNode {
+
     private Integer id;
     @JsonProperty("parentId")
     private Integer pid;
@@ -24,8 +24,6 @@ public class TreeNode implements Serializable {
     private Boolean spread;
     private String target;
     private List<TreeNode> children = new ArrayList<>();
-
-
 
     //复选树的属性
     private String checkArr="0";//默认0//选中1

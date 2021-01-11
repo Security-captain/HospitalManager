@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace和dao接口全路径映射 -->
+<mapper namespace="com.zy.dao.DrugstoreDao">
+
+    <select id="selectInsufficient" resultType="map">
+        SELECT d.rugstoreId,wa.supplierName warehouseName ,
+        d.type typeId,d.unit unitId,d.area areaId,d. skullId ,
+        d. supplierId ,d.drugstoreName,su.supplierName ,
+        sk.skullName,un.unitName,d.tradePrice, d.sellingPrice,
+        ar.areaName,d.produceDate,d.validDate,d.batch,
+        SUM(d.drugstorenum) drugstorenum,ty.typeName
+        FROM drugstore d,upplier su,skull sk,warehouse wa,unit un,
+        AREA ar,TYPE ty
+        WHERE d.supplierId=su.supplierId AND d.skullId=sk.skullId
+        AND d.warehouseId=wa.warehouseId AND d.unit=un.unitId
+        AND d.type=ty.typeId AND d.area=ar.areaId
+        GROUP BY d.drugstoreName HAVING SUM(d.drugstorenum) &lt; 30
+    </select>
+
+    <select id="selectGuoQi" resultType="map">
+        SELECT d.rugstoreId,wa.supplierName warehouseName ,d.type typeId,d.unit unitId,
+        d.area areaId,d. skullId , d. supplierId ,d.drugstoreName,su.supplierName ,
+        sk.skullName,un.unitName,d.tradePrice, d.sellingPrice,ar.areaName,d.produceDate,
+        d.validDate,d.batch,d.drugstorenum,ty.typeName from drugstore d,upplier su,skull sk,
+        warehouse wa,unit un,area ar,type ty
+        where d.supplierId=su.supplierId and d.skullId=sk.skullId
+        and d.warehouseId=wa.warehouseId and d.unit=un.unitId and
+        d.type=ty.typeId and d.area=ar.areaId and d.validDate &lt; now()
+        limit #{page},#{limit}
+    </select>
+
+    <select id="selectNum" resultType="int">
+        select sum(drugstorenum) from drugstore where drugstoreName = #{name}
+    </select>
+
+    <update id="updateDrugstore">
+        UPDATE drugstore set drugstorenum=(drugstorenum+#{drugstorenum}) where batch=#{batch}
+    </update>
+
+    <update id="updrugstore" parameterType="com.cssl.pojo.Drugstore">
+        update drugstore set  tradePrice=#{tradePrice} , sellingPrice=#{sellingPrice} ,
+        area=#{area} , type=#{type} ,
+        drugstorenum=#{drugstorenum},  batch=#{batch}
+        where rugstoreId=#{rugstoreId}
+    </update>
+
+</mapper>

@@ -1,10 +1,75 @@
 package com.cssl.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Data
+//@TableName("register")
 public class Register {
+//    @TableId(value = "registerid",type = IdType.AUTO)
+//    private Integer registerid;
+//    @TableField("userName")
+//    private String userName;
+//    @TableField("age")
+//    private Integer age;
+//    @TableField("sex")
+//    private String sex;
+//    @TableField("diagnose")
+//    private String diagnose;
+//    @TableField("address")
+//    private String address;
+//    @TableField("phone")
+//    private String phone;
+//    @TableField("idcard")
+//    private String idcard;
+//    @TableField("registerDate")
+//    @JsonFormat(pattern = "yyyy年MM月dd日",timezone = "UTC+8" )
+//    private Date registerDate;
+//    @TableField("operator")
+//    private String operator;
+//    @TableField("money")
+//    private Double money;
+//    @TableField("state")
+//    private Integer state;
+//    @TableField("department")
+//    private Integer department;
+//    @TableField("doctorId")
+//    private Integer doctorId;
+//    @TableField("bedId")
+//    private Integer bedId;
+//    @TableField("endDate")
+//    @JsonFormat(pattern = "yyyy年MM月dd日",timezone = "UTC+8" )
+//    private Date endDate;
+//    @TableField("price")
+//    private Double price;
+//    @TableField("prices")
+//    private Double prices;
+//    @TableField("discount")
+//    private String discount;
+//    @TableField("zhuan")
+//    private Date zhuan;
+//    @TableField("bedName")
+//    private String bedName;
+//    @TableField("doctorName")
+//    private String doctorName;
+//    @TableField("departmentId")
+//    private Integer departmentId;
+//
+//    @TableField("reportid")
+//    private Integer reportid;
+//    @TableField("day")
+//    private Integer day;
+
     Integer registerid;
     String userName;
     Integer age;
@@ -13,8 +78,7 @@ public class Register {
     String address;
     String phone;
     String idcard;
-    //,timezone = "GMT+8"
-    @JsonFormat(pattern = "yyyy年MM月dd日" )
+    @JsonFormat(pattern = "yyyy年MM月dd日",timezone = "UTC+8" )
     Date registerDate;
     String operator;
     Double money;
@@ -25,7 +89,7 @@ public class Register {
     String department;
     String doctorName;
     String bedName;
-    @JsonFormat(pattern = "yyyy年MM月dd日")
+    @JsonFormat(pattern = "yyyy年MM月dd日",timezone = "UTC+8" )
     Date endDate;
     Double price;
     Double prices;

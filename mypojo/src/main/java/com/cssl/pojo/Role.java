@@ -1,5 +1,13 @@
 package com.cssl.pojo;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Role {
     private Integer roleid;
 
@@ -9,35 +17,4 @@ public class Role {
 
     private Integer available;
 
-    public Integer getRoleid() {
-        return roleid;
-    }
-
-    public void setRoleid(Integer roleid) {
-        this.roleid = roleid;
-    }
-
-    public String getRolename() {
-        return rolename;
-    }
-
-    public void setRolename(String rolename) {
-        this.rolename = rolename == null ? null : rolename.trim();
-    }
-
-    public String getRoledesc() {
-        return roledesc;
-    }
-
-    public void setRoledesc(String roledesc) {
-        this.roledesc = roledesc == null ? null : roledesc.trim();
-    }
-
-    public Integer getAvailable() {
-        return available;
-    }
-
-    public void setAvailable(Integer available) {
-        this.available = available;
-    }
 }

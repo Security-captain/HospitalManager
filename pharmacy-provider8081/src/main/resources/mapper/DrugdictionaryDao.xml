@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace和dao接口全路径映射 -->
+<mapper namespace="com.zy.dao.DrugDictionaryDao">
+
+    <select id="selectDrugDictionary" resultType="map">
+
+         SELECT dr.drugId,dr.drugName,un.unitId,un.unitName,dr.sellingPrice,ar.areaId,ar.areaName,
+         ty.typeId,ty.typeName from drugdictionary dr,unit un,type ty,area ar
+
+        <where>
+            dr.unitId=un.unitId and dr.areaId=ar.areaId and dr.typeId=ty.typeId
+            <if test="name != null and name != ''">
+                AND dr.drugName like CONCAT(CONCAT('%',#{name},'%'))
+            </if>
+        </where>
+         ORDER BY dr.drugId
+
+    </select>
+
+
+</mapper>

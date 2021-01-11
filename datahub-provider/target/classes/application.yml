@@ -1,0 +1,42 @@
+server:
+  servlet:
+    context-path: /
+  port: 5001
+
+mybatis-plus:
+  type-aliases-package: com.cssl.pojo
+  mapper-locations: mapper/*.xml
+  configuration:
+    auto-mapping-behavior: full
+    use-generated-keys: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  pageSizeZero: true
+  params: countSql
+
+spring:
+  application:
+    name: datahub-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/hospitaldata?serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

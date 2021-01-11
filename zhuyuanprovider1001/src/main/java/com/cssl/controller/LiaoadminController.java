@@ -23,8 +23,6 @@ import java.util.Map;
  * @date 2020-12-4 15:37
  */
 @RestController
-//@Controller
-//@RequestMapping("/liao")
 public class LiaoadminController {
 
     //入院登记服务
@@ -36,7 +34,6 @@ public class LiaoadminController {
 
     //查询患者信息
     @RequestMapping("selRegister")
-    //@ResponseBody
     public Map<String, Object> selRegister(Integer page,Integer limit,@RequestBody Register register){
         //分页查询
         PageHelper.startPage(page, limit);
@@ -58,7 +55,6 @@ public class LiaoadminController {
 
     //页面请求查询科室信息
     @RequestMapping("selDepartment")
-    //@ResponseBody
     public Object selDepartment(){
         //new一个实体类
         Departments departments=new Departments();
@@ -95,7 +91,6 @@ public class LiaoadminController {
 
     //添加患者
     @RequestMapping("addRegister")
-    //@ResponseBody
     public int addRegister(@RequestBody Register register, HttpServletRequest request){
         System.out.println("P register ============= " + register);
 
@@ -131,15 +126,13 @@ public class LiaoadminController {
 
     //查询折扣
     @RequestMapping("selDis")
-    //@ResponseBody
     public Object selDis(){
-        List<Moneytype> moneytypes = liaoAdminService.selDis();
+        List<MoneyType> moneytypes = liaoAdminService.selDis();
         return moneytypes;
     }
 
     //查询门诊过来的患者
     @RequestMapping("selDoor")
-    //@ResponseBody
     public Object selDoor(Integer page, Integer limit){
         PageHelper.startPage(page, limit);
         List<Register> selDoor=liaoAdminService.selDoor();
@@ -157,7 +150,6 @@ public class LiaoadminController {
 
     //转科室
     @RequestMapping("updKe")
-    //@ResponseBody
     public int updKe(@RequestBody Register register){
         System.out.println("转科室---------------------"+"\n"+register);
         //把用户要住的床改成已住

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace和dao接口全路径映射 -->
+<mapper namespace="com.zy.dao.WareHuoseDao">
+
+    <select id="selectWareHuosePharmacy" resultType="map">
+        SELECT d.rugstoreId,wa.supplierName warehouseName ,
+        wa.warehouseId,d.type typeId,d.unit unitId,d.area areaId,
+        d. skullId , d. supplierId ,d.drugstoreName,su.supplierName ,
+        sk.skullName,un.unitName,d.tradePrice, d.sellingPrice,ar.areaName,
+        d.produceDate,d.validDate,d.batch,d.drugstorenum,ty.typeName
+        FROM drugstore d,upplier su,skull sk,warehouse wa,unit un,AREA ar,
+        TYPE ty
+        <where>
+            d.supplierId=su.supplierId AND d.skullId=sk.skullId
+            AND d.warehouseId=wa.warehouseId AND d.unit=un.unitId AND
+            d.type=ty.typeId AND d.area=ar.areaId
+            <if test="name != null and name != ''">
+             AND d.drugstoreName like CONCAT(CONCAT('%',#{name},'%'))
+            </if>
+        </where>
+        ORDER BY d.rugstoreId
+    </select>
+
+</mapper>

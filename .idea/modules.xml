@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/HospitalManager.iml" filepath="$PROJECT_DIR$/.idea/HospitalManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/datahub-provider/datahub-provider.iml" filepath="$PROJECT_DIR$/datahub-provider/datahub-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-provider7001/hospital-provider7001.iml" filepath="$PROJECT_DIR$/hospital-provider7001/hospital-provider7001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mypojo/mypojo.iml" filepath="$PROJECT_DIR$/mypojo/mypojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/paiban-provider/paiban-provider.iml" filepath="$PROJECT_DIR$/paiban-provider/paiban-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pharmacy-provider8081/pharmacy-provider8081.iml" filepath="$PROJECT_DIR$/pharmacy-provider8081/pharmacy-provider8081.iml" />
+      <module fileurl="file://$PROJECT_DIR$/registeredtype/registeredtype.iml" filepath="$PROJECT_DIR$/registeredtype/registeredtype.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhuyuanconsumer1002/zhuyuanconsumer1002.iml" filepath="$PROJECT_DIR$/zhuyuanconsumer1002/zhuyuanconsumer1002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhuyuanprovider1001/zhuyuanprovider1001.iml" filepath="$PROJECT_DIR$/zhuyuanprovider1001/zhuyuanprovider1001.iml" />
+    </modules>
+  </component>
+</project>
